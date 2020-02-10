@@ -1,4 +1,4 @@
-<h1 style="text-align:center;">React.js Drag'n'Drop Guessing Game!</h1>
+# React.js Drag'n'Drop Guessing Game!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
