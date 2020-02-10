@@ -1,0 +1,256 @@
+@import '../../styles/globals';
+
+// * { outline: 1px dotted red; }
+
+hr {
+  margin: unset;
+  background-color: $color-purple;
+  height: 0.05rem;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+}
+
+.mobile-text-container {
+  .mobile-text {
+    margin-top: 50%;
+  }
+}
+
+.team-game-container {
+  .profile-name {
+    text-align: center;
+    color: $color-purple;
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .sticky-header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    top: 3rem;
+    background-color: $bkg-color;
+    margin-top: 2.4rem;
+
+    .jumbotron {
+      padding-top: 1rem;
+      margin-bottom: 1rem;
+
+      .font-weight-bold {
+        margin-top: -0.25rem;
+      }
+
+      .heading {
+        margin-bottom: -0.75rem;
+      }
+
+      .sub-script {
+        color: $color-purple;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        margin-bottom: -0.25rem;
+      }
+    }
+  }
+
+  .score-text,
+  .purple {
+    font-size: 3rem;
+    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+
+    .purple {
+      color: $color-purple;
+    }
+  }
+}
+
+.team-container {
+  margin: 0rem auto;
+  width: 80%;
+  max-width: 860px;
+  display: flex;
+  flex-direction: row;
+
+  .profile-pic {
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid $color-purple;
+  }
+
+  .profile-pic-container {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: move;
+
+    .correct {
+      color: $color-white;
+      background-color: green;
+      font-weight: 900;
+      padding: 0.25rem 1.05rem;
+    }
+
+    .incorrect {
+      color: $color-white;
+      background-color: $color-red;
+      font-weight: 900;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+}
+
+.spacer {
+  margin-top: 33.5rem !important;
+}
+
+.game-card-container {
+  width: 94%;
+  margin: 26.5rem auto 0rem;
+
+  .teammate-card {
+    border-radius: 0px;
+    min-height: 14rem;
+    height: 100%;
+    margin-bottom: 2rem;
+
+    .row {
+      width: 100%;
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .col {
+      padding: 0px;
+    }
+
+    .attribute-card-container {
+      width: 100% !important;
+
+      
+      .attribute-card {
+        margin: 1rem 0px;
+        width: 10rem;
+        height: 10rem;
+        border-radius: 1rem;
+
+        .attribute-header {
+          width: 65%;
+          height: auto;
+          text-align: center;
+          margin: auto;
+          color: $color-purple;
+          font-weight: 600;
+          font-size: 0.875rem;
+        }
+
+        .fa-external-link {
+          position: absolute;
+          color: $color-disabled-text;
+          top: 12px;
+          right: 6px;
+        }
+
+        .attribute-image {
+          height: 70%;
+          border-bottom-left-radius: 1rem;
+          border-bottom-right-radius: 1rem;
+          border: none;
+        }
+      }
+    }
+  }
+
+  .card-top {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+
+    .dustbin-col {
+      width: 20% !important;
+    }
+    .delete-btn {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      width: 24px;
+      height: 24px;
+      margin-bottom: 0;
+      border-radius: 100%;
+      background: $color-purple;
+      color: $color-white;
+      border: 1px solid transparent;
+      box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+      cursor: pointer;
+      transition: all .2s ease-in-out;
+  
+      &:hover {
+        background: lighten($color-purple, 10%);
+      }
+
+      .fa-times {
+        padding: 4px 5px;
+      }
+    }
+  }
+
+  .card-bottom-menu {
+    width: 100%;
+    height: 2rem;
+    position: relative;
+    bottom: 0;
+    background-color: $bkg-color;
+
+    .row {
+      height: 100%;
+    }
+
+    .active-bottom-menu-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $color-purple;
+    }
+
+    .bottom-menu-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $color-disabled-text;
+      cursor: not-allowed;
+    }
+  }
+
+  .dustbin {
+    text-align: center;
+    font-size: 1rem;
+    line-height: normal;
+    width: 120px;
+
+    .profile-pic {
+      object-fit: cover;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 2px solid $color-purple;
+    }
+
+    .can-drop {
+      box-shadow: 0 0 0.5rem 0.25rem rgba($color-purple, 0.5);
+      transition: 0.15s ease-in-out;
+    }
+
+    .drop {
+      box-shadow: 0 0 0.75rem 0.5rem rgba(grey, 0.5);
+      transform: scale(1.15);
+      transition: 0.15s ease-in-out;
+    }
+  
+    .profile-pic-container {
+      background-color: none;
+      width: 120px;
+      height: 120px;
+      margin: 1rem 0rem;
+    }
+  }
+}
