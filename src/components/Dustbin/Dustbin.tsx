@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
+import { images } from '../../assets'
 
 const style: React.CSSProperties = {
   height: '12rem',
@@ -35,23 +36,27 @@ const Dustbin: React.FC<DustbinProps> = ({
   })
 
   const isActive = isOver && canDrop
-  let backgroundColor = '#222'
-  if (isActive) {
-    backgroundColor = 'darkgreen'
-  } else if (canDrop) {
-    backgroundColor = 'darkkhaki'
+  let dropState = 'profile-pic'
+  if (canDrop) {
+    dropState = 'profile-pic can-drop'
+  }
+  if (isOver) {
+    dropState = 'profile-pic drop'
   }
 
   return (
-    <div ref={drop} style={{ ...style, backgroundColor }}>
-      {isActive
-        ? 'Release to drop'
-        : `This dustbin accepts: ${accept.join(', ')}`}
-
-      {lastDroppedItem && (
-        <p>Last dropped: {JSON.stringify(lastDroppedItem)}</p>
-      )}
-    </div>
+    <>
+      <div ref={drop} className='dustbin'>
+        <img 
+          className={dropState}
+          alt='Drop teammate here!'
+          title='Drop teammate here!'
+          src={images.default_avatar} /> 
+        {lastDroppedItem && (
+          <p className='profile-name'>{lastDroppedItem.name}</p>
+        )}
+      </div>
+    </>
   )
 }
 

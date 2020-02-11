@@ -1,3 +1,41 @@
 .container {
   margin: 1rem;
 }
+
+.playerNames {
+  width: 14rem;
+}
+
+.dustbin {
+  text-align: center;
+  font-size: 1rem;
+  line-height: normal;
+  width: 14rem;
+
+  .profile-pic {
+    object-fit: cover;
+    width: 12rem;
+    height: 12rem;
+    margin: 1rem;
+    border-radius: 50%;
+    border: 2px solid green;
+  }
+
+  .can-drop {
+    box-shadow: 0 0 0.25rem 0.125rem rgba(green, 0.5);
+    transition: 0.15s ease-in-out;
+  }
+
+  .drop {
+    box-shadow: 0 0 0.5rem 0.25rem rgba(grey, 0.5);
+    transform: scale(1.01);
+    transition: 0.15s ease-in-out;
+  }
+
+  .profile-name {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+}

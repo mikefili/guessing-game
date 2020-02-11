@@ -2,10 +2,9 @@ import React, { useState, useCallback } from 'react'
 import '../../styles/GameContainer.scss'
 import { Dustbin} from '../Dustbin'
 import { Box } from '../Box'
-import ItemTypes from '../../constants/ItemTypes'
 import update from 'immutability-helper'
 import { Container } from 'react-bootstrap'
-import PlayersObj from '../../constants/players.json'
+import PlayersObj from '../../constants/gamePlayers.json'
 
 interface DustbinState {
   accepts: string[]
@@ -31,18 +30,25 @@ export interface GameContainerState {
   boxes: BoxSpec[]
 }
 
+const formatName = (fullName: string) => {
+  let splitName = fullName.split(' ');
+  let initials = `${splitName[0]} ${(splitName[1].match(/\b\w/g) || [])}.`;
+  return initials;
+}
+
 const GameContainer: React.FC = () => {
   const [dustbins, setDustbins] = useState<DustbinState[]>([
-    { accepts: [ItemTypes.MIKE], lastDroppedItem: null },
+    { accepts: ['any'], lastDroppedItem: null },
   ])
 
   const boxesArr: any[] = []
 
-  const Players = () => Object.keys(PlayersObj).map(player => {
+  const Players = () => Object.values(PlayersObj).map(player => {
     boxesArr.push({
-      name: PlayersObj[player].fullName,
+      name: formatName(player.fullName),
       type: 'any'
     })
+    return boxesArr.sort(() => 0.5 - Math.random())
   })
 
   Players()
@@ -57,6 +63,7 @@ const GameContainer: React.FC = () => {
 
   const handleDrop = useCallback(
     (index: number, item: { name: string }) => {
+      console.log('dustbins ', dustbins)
       const { name } = item
       setDroppedBoxNames(
         update(droppedBoxNames, name ? { $push: [name] } : { $push: [] }),
@@ -84,10 +91,10 @@ const GameContainer: React.FC = () => {
             onDrop={item => handleDrop(index, item)}
             key={index}
           />
-        ))}
+          ))}
       </div>
 
-      <div style={{ overflow: 'hidden', clear: 'both' }}>
+      <div className='playerNames'>
         {boxes.map(({ name, type }, index) => (
           <Box
             name={name}
