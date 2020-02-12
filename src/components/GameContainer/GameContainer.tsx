@@ -3,7 +3,7 @@ import '../../styles/GameContainer.scss'
 import { Dustbin} from '../Dustbin'
 import { Box } from '../Box'
 import update from 'immutability-helper'
-import { Container } from 'react-bootstrap'
+import { Jumbotron } from 'react-bootstrap'
 import PlayersObj from '../../constants/gamePlayers.json'
 
 interface DustbinState {
@@ -92,30 +92,39 @@ const GameContainer: React.FC = () => {
   )
 
   return (
-    <Container>
-      <div style={{ overflow: 'hidden', clear: 'both' }}>
-        {dustbins.map(({ accepts, lastDroppedItem, profile }, index) => (
-          <Dustbin
-            accept={accepts}
-            lastDroppedItem={lastDroppedItem}
-            profile={profile}
-            onDrop={item => handleDrop(index, item)}
-            key={index}
-          />
+    <div>
+
+      <Jumbotron>
+        <h1>GUESS WHO?</h1>
+      </Jumbotron>
+
+      <div className='game-card'>
+
+        <div>
+          {dustbins.map(({ accepts, lastDroppedItem, profile }, index) => (
+            <Dustbin
+              accept={accepts}
+              lastDroppedItem={lastDroppedItem}
+              profile={profile}
+              onDrop={item => handleDrop(index, item)}
+              key={index}
+            />
+            ))}
+        </div>
+
+        <div className='playerNames'>
+          {boxes.map(({ name, type }, index) => (
+            <Box
+              name={name}
+              type={type}
+              isDropped={isDropped(name)}
+              key={index}
+            />
           ))}
+        </div>
       </div>
 
-      <div className='playerNames'>
-        {boxes.map(({ name, type }, index) => (
-          <Box
-            name={name}
-            type={type}
-            isDropped={isDropped(name)}
-            key={index}
-          />
-        ))}
-      </div>
-    </Container>
+    </div>
   )
 }
 

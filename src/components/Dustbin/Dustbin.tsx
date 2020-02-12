@@ -55,7 +55,7 @@ const Dustbin: React.FC<DustbinProps> = ({
           title='Drop teammate here!'
           src={profile ? profile.profilePicture : images.default_avatar} /> 
         {lastDroppedItem && (
-          <p className='profile-name'>{lastDroppedItem.name}</p>
+          <span className='profile-name'>{lastDroppedItem.name}</span>
         )}
       </div>
     </>

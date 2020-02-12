@@ -1,15 +1,6 @@
 import React from 'react'
 import { useDrag } from 'react-dnd'
 
-const style: React.CSSProperties = {
-  border: '1px dashed gray',
-  backgroundColor: 'white',
-  width: '12rem',
-  padding: '0.5rem 1rem',
-  cursor: 'move',
-  float: 'left',
-}
-
 export interface BoxProps {
   name: any
   type: any
@@ -25,7 +16,7 @@ const Box: React.FC<BoxProps> = ({ name, type, isDropped }) => {
   })
 
   return (
-    <div ref={drag} style={{ ...style, opacity }}>
+    <div ref={drag} className='box'>
       {isDropped ? <s>{name}</s> : name}
     </div>
   )
