@@ -3,12 +3,13 @@ import '../../styles/GameContainer.scss'
 import { Dustbin} from '../Dustbin'
 import { Box } from '../Box'
 import update from 'immutability-helper'
-import { Container } from 'react-bootstrap'
+import { Jumbotron } from 'react-bootstrap'
 import PlayersObj from '../../constants/gamePlayers.json'
 
 interface DustbinState {
   accepts: string[]
   lastDroppedItem: any
+  profile: any
 }
 
 interface BoxState {
@@ -19,6 +20,7 @@ interface BoxState {
 export interface DustbinSpec {
   accepts: string[]
   lastDroppedItem: any
+  profile: any
 }
 export interface BoxSpec {
   name: string
@@ -37,13 +39,21 @@ const formatName = (fullName: string) => {
 }
 
 const GameContainer: React.FC = () => {
+  const boxesArr: any[] = []
+  let dustbin: any = null
+  
+  const GenerateAnswer = (obj: any) => {
+    let keys = Object.keys(obj)
+    const answer = (obj[keys[keys.length * Math.random() << 0]])
+    console.log('answer', answer)
+    return answer
+  }
+  
   const [dustbins, setDustbins] = useState<DustbinState[]>([
-    { accepts: ['any'], lastDroppedItem: null },
+    { accepts: ['any'], lastDroppedItem: null, profile: GenerateAnswer(PlayersObj) },
   ])
 
-  const boxesArr: any[] = []
-
-  const Players = () => Object.values(PlayersObj).map(player => {
+  const GenerateOptions = () => Object.values(PlayersObj).map(player => {
     boxesArr.push({
       name: formatName(player.fullName),
       type: 'any'
@@ -51,7 +61,7 @@ const GameContainer: React.FC = () => {
     return boxesArr.sort(() => 0.5 - Math.random())
   })
 
-  Players()
+  GenerateOptions()
 
   const [boxes] = useState<BoxState[]>(boxesArr)
 
@@ -82,29 +92,39 @@ const GameContainer: React.FC = () => {
   )
 
   return (
-    <Container>
-      <div style={{ overflow: 'hidden', clear: 'both' }}>
-        {dustbins.map(({ accepts, lastDroppedItem }, index) => (
-          <Dustbin
-            accept={accepts}
-            lastDroppedItem={lastDroppedItem}
-            onDrop={item => handleDrop(index, item)}
-            key={index}
-          />
+    <div>
+
+      <Jumbotron>
+        <h1>GUESS WHO?</h1>
+      </Jumbotron>
+
+      <div className='game-card'>
+
+        <div>
+          {dustbins.map(({ accepts, lastDroppedItem, profile }, index) => (
+            <Dustbin
+              accept={accepts}
+              lastDroppedItem={lastDroppedItem}
+              profile={profile}
+              onDrop={item => handleDrop(index, item)}
+              key={index}
+            />
+            ))}
+        </div>
+
+        <div className='playerNames'>
+          {boxes.map(({ name, type }, index) => (
+            <Box
+              name={name}
+              type={type}
+              isDropped={isDropped(name)}
+              key={index}
+            />
           ))}
+        </div>
       </div>
 
-      <div className='playerNames'>
-        {boxes.map(({ name, type }, index) => (
-          <Box
-            name={name}
-            type={type}
-            isDropped={isDropped(name)}
-            key={index}
-          />
-        ))}
-      </div>
-    </Container>
+    </div>
   )
 }
 

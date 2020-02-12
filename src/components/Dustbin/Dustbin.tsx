@@ -18,12 +18,14 @@ const style: React.CSSProperties = {
 export interface DustbinProps {
   accept: string[]
   lastDroppedItem?: any
+  profile: any
   onDrop: (item: any) => void
 }
 
 const Dustbin: React.FC<DustbinProps> = ({
   accept,
   lastDroppedItem,
+  profile,
   onDrop,
 }) => {
   const [{ isOver, canDrop }, drop] = useDrop({
@@ -51,9 +53,9 @@ const Dustbin: React.FC<DustbinProps> = ({
           className={dropState}
           alt='Drop teammate here!'
           title='Drop teammate here!'
-          src={images.default_avatar} /> 
+          src={profile ? profile.profilePicture : images.default_avatar} /> 
         {lastDroppedItem && (
-          <p className='profile-name'>{lastDroppedItem.name}</p>
+          <span className='profile-name'>{lastDroppedItem.name}</span>
         )}
       </div>
     </>

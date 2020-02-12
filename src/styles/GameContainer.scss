@@ -1,41 +1,68 @@
-.container {
-  margin: 1rem;
-}
+.game-card {
+  margin: 2rem auto;
+  width: 15rem;
+  height: 28.5rem;
+  border: 1px solid lightgray;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
 
-.playerNames {
-  width: 14rem;
-}
-
-.dustbin {
-  text-align: center;
-  font-size: 1rem;
-  line-height: normal;
-  width: 14rem;
-
-  .profile-pic {
-    object-fit: cover;
-    width: 12rem;
-    height: 12rem;
-    margin: 1rem;
-    border-radius: 50%;
-    border: 2px solid green;
+  .playerNames {
+    width: 14rem;
+    margin: auto;
   }
-
-  .can-drop {
-    box-shadow: 0 0 0.25rem 0.125rem rgba(green, 0.5);
-    transition: 0.15s ease-in-out;
-  }
-
-  .drop {
-    box-shadow: 0 0 0.5rem 0.25rem rgba(grey, 0.5);
-    transform: scale(1.01);
-    transition: 0.15s ease-in-out;
-  }
-
-  .profile-name {
-    width: 100%;
+  
+  .dustbin {
     text-align: center;
-    font-weight: 600;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    line-height: normal;
+    width: 14rem;
+    height: 16rem;
+    margin: auto;
+  
+    .profile-pic {
+      object-fit: cover;
+      width: 12rem;
+      height: 12rem;
+      margin: 1rem 1rem 0rem 1rem;
+      border-radius: 50%;
+      border: 2px double lightgray;
+    }
+  
+    .can-drop {
+      box-shadow: 0 0 0.25rem 0.125rem rgba(gray, 0.5);
+      transition: 0.15s ease-in-out;
+    }
+  
+    .drop {
+      box-shadow: 0 0 0.5rem 0.25rem rgba(green, 0.5);
+      transform: scale(1.01);
+      transition: 0.15s ease-in-out;
+    }
+  
+    .profile-name {
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+  }
+
+  .box {
+    outline: 1px dashed lightgray;
+    width: 12rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.2rem;
+    cursor: move;
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    margin: 0.5rem 0rem;
+  }
+
+  .game-card {
+    margin-top: 0.5rem;
   }
 }
