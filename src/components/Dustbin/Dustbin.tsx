@@ -2,9 +2,10 @@ import React from 'react'
 import { useDrop } from 'react-dnd'
 import { images } from '../../assets'
 import styled, { keyframes } from 'styled-components'
-import { fadeIn } from 'react-animations'
+import { fadeIn, headShake } from 'react-animations'
 
 const FadeIn = styled.div`animation: 0.3s ${keyframes`${fadeIn}`}`
+const HeadShake = styled.div`animation: 1s ${keyframes`${headShake}`}`
 
 export interface DustbinProps {
   accept: string[]
@@ -45,9 +46,15 @@ const Dustbin: React.FC<DustbinProps> = ({
           title='Drop teammate here!'
           src={profile ? profile.profilePicture : images.default_avatar} /> 
         {lastDroppedItem && (
-          <FadeIn>
-            <span className='profile-name'>{lastDroppedItem.name}</span>
-          </FadeIn>
+          lastDroppedItem.name === profile.fullName ? ( 
+            <FadeIn>
+              <span className='response'>CORRECT!</span>
+            </FadeIn> ) 
+            : ( 
+            <HeadShake>
+              <span className='response false'>SORRY!</span>
+            </HeadShake>
+          )
         )}
       </div>
     </>

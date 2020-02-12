@@ -17,15 +17,19 @@
       padding: 0.5rem 1rem;
       margin-bottom: 0.2rem;
       cursor: move;
+      transition: 0.1s ease-in-out;
+    }
+
+    .box:hover,
+    .box:active {
+      outline: 1px solid lightgray;
+      transform: scale(1.02);
+      transition: 0.1s ease-in-out;
     }
   
     .dropped-box {
       outline: 1px solid red !important;
       color: lightgray;
-      width: 12rem;
-      padding: 0.5rem 1rem;
-      margin-bottom: 0.2rem;
-      cursor: move;
     }
   }
   
@@ -57,11 +61,16 @@
       transition: 0.15s ease-in-out;
     }
   
-    .profile-name {
+    .response {
       width: 100%;
       text-align: center;
       font-weight: 600;
       font-size: 1.5rem;
+
+    }
+    
+    .false {
+      color: red;
     }
   }
 }

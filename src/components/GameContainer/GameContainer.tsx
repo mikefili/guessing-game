@@ -1,36 +1,10 @@
 import React, { useState, useCallback } from 'react'
+import { DustbinState, BoxState } from './ComponentInterface'
 import '../../styles/GameContainer.scss'
 import { Dustbin} from '../Dustbin'
 import { Box } from '../Box'
 import update from 'immutability-helper'
-import { Jumbotron } from 'react-bootstrap'
 import PlayersObj from '../../constants/gamePlayers.json'
-
-interface DustbinState {
-  accepts: string[]
-  lastDroppedItem: any
-  profile: any
-}
-
-interface BoxState {
-  name: string
-  type: string
-}
-
-export interface DustbinSpec {
-  accepts: string[]
-  lastDroppedItem: any
-  profile: any
-}
-export interface BoxSpec {
-  name: string
-  type: string
-}
-export interface GameContainerState {
-  droppedBoxNames: string[]
-  dustbins: DustbinSpec[]
-  boxes: BoxSpec[]
-}
 
 const formatName = (fullName: string) => {
   let splitName = fullName.split(' ');
@@ -54,7 +28,7 @@ const GameContainer: React.FC = () => {
 
   const GenerateOptions = () => Object.values(PlayersObj).map(player => {
     boxesArr.push({
-      name: formatName(player.fullName),
+      name: player.fullName,
       type: 'any'
     })
     return boxesArr.sort(() => 0.5 - Math.random())
@@ -93,9 +67,9 @@ const GameContainer: React.FC = () => {
   return (
     <div>
 
-      <Jumbotron>
+      <div>
         <h1>GUESS WHO?</h1>
-      </Jumbotron>
+      </div>
 
       <div className='game-card'>
 
