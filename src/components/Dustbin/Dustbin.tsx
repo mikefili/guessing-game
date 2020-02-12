@@ -3,6 +3,7 @@ import { useDrop } from 'react-dnd'
 import { images } from '../../assets'
 import styled, { keyframes } from 'styled-components'
 import { fadeIn, headShake } from 'react-animations'
+import FontAwesome from 'react-fontawesome'
 
 const FadeIn = styled.div`animation: 0.3s ${keyframes`${fadeIn}`}`
 const HeadShake = styled.div`animation: 1s ${keyframes`${headShake}`}`
@@ -40,6 +41,11 @@ const Dustbin: React.FC<DustbinProps> = ({
   return (
     <>
       <div ref={drop} className='dustbin'>
+        <button 
+          className='btn-refresh'
+          onClick={() => {window.location.reload()}}>
+            <FontAwesome name='refresh' />
+        </button>
         <img 
           className={dropState}
           alt='Drop teammate here!'
@@ -49,6 +55,7 @@ const Dustbin: React.FC<DustbinProps> = ({
           lastDroppedItem.name === profile.fullName ? ( 
             <FadeIn>
               <span className='response'>CORRECT!</span>
+              <p>{profile.fullName}</p>
             </FadeIn> ) 
             : ( 
             <HeadShake>

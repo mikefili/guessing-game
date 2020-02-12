@@ -40,6 +40,25 @@
     width: 14rem;
     height: 16rem;
     margin: auto;
+    position: relative;
+
+    .btn-refresh {
+      position: absolute;
+      right: 0;
+      top: 0.5rem;
+      border-radius: 50%;
+      border: 2px ridge white;
+      background-color: red;
+      color: white;
+      height: 1.7rem;
+      width: 1.7rem;
+      cursor: pointer;
+    }
+
+    .btn-refresh:hover {
+      transform: scale(1.15);
+      transition: 0.1s ease-in-out;
+    }
   
     .profile-pic {
       object-fit: cover;
@@ -56,7 +75,7 @@
     }
   
     .drop {
-      box-shadow: 0 0 0.5rem 0.25rem rgba(green, 0.5);
+      box-shadow: 0 0 0.5rem 0.25rem rgba(gray, 0.5);
       transform: scale(1.01);
       transition: 0.15s ease-in-out;
     }
@@ -66,21 +85,37 @@
       text-align: center;
       font-weight: 600;
       font-size: 1.5rem;
-
     }
-    
+
     .false {
       color: red;
     }
   }
 }
 
-@media (max-width: 320px) {
+.jumbotron {
   h1 {
-    margin: 0.5rem 0rem;
+    margin: 2rem 0rem 0rem;
   }
 
+  p {
+    margin: 0.5rem 0rem;
+  }
+}
+
+@media (max-width: 320px) {
   .game-card {
     margin-top: 0.5rem;
+  }
+  
+  .jumbotron {
+    h1 {
+      margin: 0.5rem 0rem 0rem 0rem;
+      font-size: 2.5rem;
+    }
+
+    p {
+      margin: 0rem 0rem 0.5rem 0rem;
+    }
   }
 }

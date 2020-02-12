@@ -6,12 +6,6 @@ import { Box } from '../Box'
 import update from 'immutability-helper'
 import PlayersObj from '../../constants/gamePlayers.json'
 
-const formatName = (fullName: string) => {
-  let splitName = fullName.split(' ');
-  let initials = `${splitName[0]} ${(splitName[1].match(/\b\w/g) || [])}.`;
-  return initials;
-}
-
 const GameContainer: React.FC = () => {
   const boxesArr: any[] = []
   
@@ -23,7 +17,11 @@ const GameContainer: React.FC = () => {
   }
   
   const [dustbins, setDustbins] = useState<DustbinState[]>([
-    { accepts: ['any'], lastDroppedItem: null, profile: GenerateAnswer(PlayersObj) },
+    { 
+      accepts: ['any'], 
+      lastDroppedItem: null, 
+      profile: GenerateAnswer(PlayersObj) 
+    },
   ])
 
   const GenerateOptions = () => Object.values(PlayersObj).map(player => {
@@ -67,8 +65,9 @@ const GameContainer: React.FC = () => {
   return (
     <div>
 
-      <div>
+      <div className='jumbotron'>
         <h1>GUESS WHO?</h1>
+        <p>Get to know your co-workers!</p>
       </div>
 
       <div className='game-card'>
@@ -95,6 +94,7 @@ const GameContainer: React.FC = () => {
             />
           ))}
         </div>
+
       </div>
 
     </div>

@@ -14,7 +14,7 @@ const Box: React.FC<BoxProps> = ({ name, type, isDropped }) => {
 
   return (
     <div ref={drag} className='box'>
-      {isDropped ? <strong>{name}</strong> : name}
+      {isDropped ? <s>{name}</s> : name}
     </div>
   )
 }
