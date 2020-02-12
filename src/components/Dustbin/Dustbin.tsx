@@ -1,19 +1,10 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
 import { images } from '../../assets'
+import styled, { keyframes } from 'styled-components'
+import { fadeIn } from 'react-animations'
 
-const style: React.CSSProperties = {
-  height: '12rem',
-  width: '12rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  color: 'white',
-  padding: '1rem',
-  textAlign: 'center',
-  fontSize: '1rem',
-  lineHeight: 'normal',
-  float: 'left',
-}
+const FadeIn = styled.div`animation: 0.3s ${keyframes`${fadeIn}`}`
 
 export interface DustbinProps {
   accept: string[]
@@ -37,7 +28,6 @@ const Dustbin: React.FC<DustbinProps> = ({
     }),
   })
 
-  const isActive = isOver && canDrop
   let dropState = 'profile-pic'
   if (canDrop) {
     dropState = 'profile-pic can-drop'
@@ -55,7 +45,9 @@ const Dustbin: React.FC<DustbinProps> = ({
           title='Drop teammate here!'
           src={profile ? profile.profilePicture : images.default_avatar} /> 
         {lastDroppedItem && (
-          <span className='profile-name'>{lastDroppedItem.name}</span>
+          <FadeIn>
+            <span className='profile-name'>{lastDroppedItem.name}</span>
+          </FadeIn>
         )}
       </div>
     </>

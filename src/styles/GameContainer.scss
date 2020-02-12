@@ -7,9 +7,26 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 0.5rem;
 
-  .playerNames {
+  .player-names {
     width: 14rem;
     margin: auto;
+
+    .box {
+      outline: 1px dashed lightgray;
+      width: 12rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.2rem;
+      cursor: move;
+    }
+  
+    .dropped-box {
+      outline: 1px solid red !important;
+      color: lightgray;
+      width: 12rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.2rem;
+      cursor: move;
+    }
   }
   
   .dustbin {
@@ -24,7 +41,7 @@
       object-fit: cover;
       width: 12rem;
       height: 12rem;
-      margin: 1rem 1rem 0rem 1rem;
+      margin-top: 1rem;
       border-radius: 50%;
       border: 2px double lightgray;
     }
@@ -46,14 +63,6 @@
       font-weight: 600;
       font-size: 1.5rem;
     }
-  }
-
-  .box {
-    outline: 1px dashed lightgray;
-    width: 12rem;
-    padding: 0.5rem 1rem;
-    margin-bottom: 0.2rem;
-    cursor: move;
   }
 }
 

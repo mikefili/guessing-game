@@ -40,7 +40,6 @@ const formatName = (fullName: string) => {
 
 const GameContainer: React.FC = () => {
   const boxesArr: any[] = []
-  let dustbin: any = null
   
   const GenerateAnswer = (obj: any) => {
     let keys = Object.keys(obj)
@@ -112,7 +111,7 @@ const GameContainer: React.FC = () => {
             ))}
         </div>
 
-        <div className='playerNames'>
+        <div className='player-names'>
           {boxes.map(({ name, type }, index) => (
             <Box
               name={name}
