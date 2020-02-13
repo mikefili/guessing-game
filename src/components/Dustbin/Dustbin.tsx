@@ -1,20 +1,14 @@
 import React from 'react'
+import { DustbinProps } from './ComponentInterface'
 import { useDrop } from 'react-dnd'
 import { images } from '../../assets'
 import styled, { keyframes } from 'styled-components'
-import { fadeIn, headShake } from 'react-animations'
+import { fadeIn, headShake, tada } from 'react-animations'
 import FontAwesome from 'react-fontawesome'
 
 const FadeIn = styled.div`animation: 0.3s ${keyframes`${fadeIn}`}`
+const Tada = styled.div`animation: 1s ${keyframes`${tada}`}`
 const HeadShake = styled.div`animation: 1s ${keyframes`${headShake}`}`
-
-export interface DustbinProps {
-  accept: string[]
-  lastDroppedItem?: any
-  profile: any
-
-  onDrop: (item: any) => void
-}
 
 const Dustbin: React.FC<DustbinProps> = ({
   accept,
@@ -60,7 +54,9 @@ const Dustbin: React.FC<DustbinProps> = ({
           isCorrect ? ( 
             <>
               <div className='correct-overlay'>
-                <div className='correct-name'>{profile.name}</div>
+                <Tada>
+                  <div className='correct-name'>{profile.name}</div>
+                </Tada>
               </div>
               <FadeIn>
                 <span className='response'>CORRECT!</span>

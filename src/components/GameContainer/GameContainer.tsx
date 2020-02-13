@@ -27,17 +27,13 @@ const GameContainer: React.FC = () => {
   }
   
   const [dustbins, setDustbins] = useState<DustbinState[]>([
-    { 
-      accepts: ['any'], 
-      lastDroppedItem: null, 
-      profile: GenerateAnswer() 
-    },
+    { accepts: ['any'], lastDroppedItem: null, profile: GenerateAnswer() }
   ])
 
   const [boxes] = useState<BoxState[]>(boxesArr.slice(0, 5))
   const [droppedBoxNames, setDroppedBoxNames] = useState<string[]>([])
 
-  function isDropped(boxName: string) {
+  const isDropped = (boxName: string) => {
     return droppedBoxNames.indexOf(boxName) > -1
   }
 
