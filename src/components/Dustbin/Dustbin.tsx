@@ -12,6 +12,7 @@ export interface DustbinProps {
   accept: string[]
   lastDroppedItem?: any
   profile: any
+
   onDrop: (item: any) => void
 }
 
@@ -30,12 +31,16 @@ const Dustbin: React.FC<DustbinProps> = ({
     }),
   })
 
+  const isCorrect = lastDroppedItem && (lastDroppedItem.uid === profile.uid)
   let dropState = 'profile-pic'
   if (canDrop) {
     dropState = 'profile-pic can-drop'
   }
   if (isOver) {
     dropState = 'profile-pic drop'
+  }
+  if (lastDroppedItem && isCorrect) {
+    dropState = 'profile-pic correct'
   }
 
   return (
@@ -51,13 +56,16 @@ const Dustbin: React.FC<DustbinProps> = ({
           alt='Drop teammate here!'
           title='Drop teammate here!'
           src={profile ? profile.profilePicture : images.default_avatar} /> 
-          {console.log('last dropped & profile', lastDroppedItem, profile)}
         {lastDroppedItem && (
-          lastDroppedItem.uid === profile.uid ? ( 
-            <FadeIn>
-              <span className='response'>CORRECT!</span>
-              <p>{profile.name}</p>
-            </FadeIn> ) 
+          isCorrect ? ( 
+            <>
+              <div className='correct-overlay'>
+                <div className='correct-name'>{profile.name}</div>
+              </div>
+              <FadeIn>
+                <span className='response'>CORRECT!</span>
+              </FadeIn>
+            </> ) 
             : ( 
             <HeadShake>
               <span className='response false'>SORRY!</span>

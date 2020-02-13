@@ -66,8 +66,9 @@
       width: 12rem;
       height: 12rem;
       margin-top: 1rem;
+      margin-bottom: 0.25rem;
       border-radius: 50%;
-      border: 2px double lightgray;
+      // border: 2px double lightgray;
     }
   
     .can-drop {
@@ -77,12 +78,9 @@
   
     .drop {
       box-shadow: 0 0 0.5rem 0.25rem rgba(gray, 0.5);
-      transform: scale(1.01);
-      transition: 0.15s ease-in-out;
     }
   
     .response {
-      width: 100%;
       text-align: center;
       font-weight: 600;
       font-size: 1.5rem;
@@ -90,6 +88,27 @@
 
     .false {
       color: red;
+    }
+
+    .correct {
+      box-shadow: 0 0 0.5rem 0.25rem rgba(green, 0.5);
+    }
+
+    .correct-overlay {
+      position: absolute;
+      top: 0;
+      width: 12rem;
+      height: 12rem;
+      margin: 1rem;
+      border: none;
+      border-radius: 50%;
+      background-color: rgba(whitesmoke, 0.75);
+    }
+
+    .correct-name {
+      text-transform: uppercase;
+      font-weight: 600;
+      line-height: 12rem;
     }
   }
 }
