@@ -22,10 +22,7 @@ const GameContainer: React.FC = () => {
   const GenerateAnswer = () => {
     GenerateOptions()
     let int = Math.ceil((Math.random() * 10) / 2)
-    console.log('int: ', int)
-    console.log('boxes: ', boxesArr)
     const answer = boxesArr.slice((int - 1), int)[0]
-    console.log('answer: ', answer)
     return answer
   }
   
@@ -46,7 +43,6 @@ const GameContainer: React.FC = () => {
 
   const handleDrop = useCallback(
     (index: number, item: { name: string, uid: any, profilePicture: any }) => {
-      console.log('dustbins ', dustbins)
       const { name } = item
       setDroppedBoxNames(
         update(droppedBoxNames, name ? { $push: [name] } : { $push: [] }),
