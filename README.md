@@ -1,3 +1,3 @@
-# React.js Drag'n'Drop Guessing Game!
+<h1 align="center">React.js Drag'n'Drop Guessing Game!</h1>
 
-### Get to know your co-workers, classmates, students, or anyone you might need to
+<h3 align="center">Get to know your co-workers, classmates, students, etc.</h3>
