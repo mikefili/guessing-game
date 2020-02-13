@@ -1,13 +1,6 @@
 import React from 'react'
+import { BoxProps } from './ComponentInterface'
 import { useDrag } from 'react-dnd'
-
-export interface BoxProps {
-  name: any
-  type: any
-  uid?: any
-  profilePicture: any
-  isDropped: boolean
-}
 
 const Box: React.FC<BoxProps> = ({ name, type, uid, profilePicture, isDropped }) => {
   const [ , drag] = useDrag({
