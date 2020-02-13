@@ -6,5 +6,7 @@ export interface DustbinState {
 
 export interface BoxState {
   name: string
+  profilePicture: any
+  uid: any
   type: string
 }

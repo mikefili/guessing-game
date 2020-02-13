@@ -51,11 +51,12 @@ const Dustbin: React.FC<DustbinProps> = ({
           alt='Drop teammate here!'
           title='Drop teammate here!'
           src={profile ? profile.profilePicture : images.default_avatar} /> 
+          {console.log('last dropped & profile', lastDroppedItem, profile)}
         {lastDroppedItem && (
-          lastDroppedItem.name === profile.fullName ? ( 
+          lastDroppedItem.uid === profile.uid ? ( 
             <FadeIn>
               <span className='response'>CORRECT!</span>
-              <p>{profile.fullName}</p>
+              <p>{profile.name}</p>
             </FadeIn> ) 
             : ( 
             <HeadShake>
