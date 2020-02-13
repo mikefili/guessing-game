@@ -1,0 +1,122 @@
+.game-card {
+  margin: 2rem auto;
+  width: 15rem;
+  height: 28.5rem;
+  border: 1px solid lightgray;
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+
+  .player-names {
+    width: 14rem;
+    margin: auto;
+
+    .box {
+      outline: 1px dashed lightgray;
+      background-color: whitesmoke;
+      width: 12rem;
+      padding: 0.5rem 1rem;
+      margin-bottom: 0.2rem;
+      cursor: move;
+      transition: 0.1s ease-in-out;
+    }
+
+    .box:hover,
+    .box:active {
+      outline: 1px solid lightgray;
+      transform: scale(1.02);
+      transition: 0.1s ease-in-out;
+    }
+  
+    .dropped-box {
+      outline: 1px solid red !important;
+      color: lightgray;
+    }
+  }
+  
+  .dustbin {
+    text-align: center;
+    font-size: 1rem;
+    line-height: normal;
+    width: 14rem;
+    height: 16rem;
+    margin: auto;
+    position: relative;
+
+    .btn-refresh {
+      position: absolute;
+      right: 0;
+      top: 0.5rem;
+      border-radius: 50%;
+      border: 2px ridge white;
+      background-color: red;
+      color: white;
+      height: 1.7rem;
+      width: 1.7rem;
+      cursor: pointer;
+    }
+
+    .btn-refresh:hover {
+      transform: scale(1.15);
+      transition: 0.1s ease-in-out;
+    }
+  
+    .profile-pic {
+      object-fit: cover;
+      width: 12rem;
+      height: 12rem;
+      margin-top: 1rem;
+      border-radius: 50%;
+      border: 2px double lightgray;
+    }
+  
+    .can-drop {
+      box-shadow: 0 0 0.25rem 0.125rem rgba(gray, 0.5);
+      transition: 0.15s ease-in-out;
+    }
+  
+    .drop {
+      box-shadow: 0 0 0.5rem 0.25rem rgba(gray, 0.5);
+      transform: scale(1.01);
+      transition: 0.15s ease-in-out;
+    }
+  
+    .response {
+      width: 100%;
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+
+    .false {
+      color: red;
+    }
+  }
+}
+
+.jumbotron {
+  h1 {
+    margin: 2rem 0rem 0rem;
+  }
+
+  p {
+    margin: 0.5rem 0rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .game-card {
+    margin-top: 0.5rem;
+  }
+  
+  .jumbotron {
+    h1 {
+      margin: 0.5rem 0rem 0rem 0rem;
+      font-size: 2.5rem;
+    }
+
+    p {
+      margin: 0rem 0rem 0.5rem 0rem;
+    }
+  }
+}
