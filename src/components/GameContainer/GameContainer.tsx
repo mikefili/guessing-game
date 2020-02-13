@@ -1,70 +1,40 @@
 import React, { useState, useCallback } from 'react'
+import { DustbinState, BoxState } from './ComponentInterface'
 import '../../styles/GameContainer.scss'
 import { Dustbin} from '../Dustbin'
 import { Box } from '../Box'
 import update from 'immutability-helper'
-import { Jumbotron } from 'react-bootstrap'
 import PlayersObj from '../../constants/gamePlayers.json'
-
-interface DustbinState {
-  accepts: string[]
-  lastDroppedItem: any
-  profile: any
-}
-
-interface BoxState {
-  name: string
-  type: string
-}
-
-export interface DustbinSpec {
-  accepts: string[]
-  lastDroppedItem: any
-  profile: any
-}
-export interface BoxSpec {
-  name: string
-  type: string
-}
-export interface GameContainerState {
-  droppedBoxNames: string[]
-  dustbins: DustbinSpec[]
-  boxes: BoxSpec[]
-}
-
-const formatName = (fullName: string) => {
-  let splitName = fullName.split(' ');
-  let initials = `${splitName[0]} ${(splitName[1].match(/\b\w/g) || [])}.`;
-  return initials;
-}
 
 const GameContainer: React.FC = () => {
   const boxesArr: any[] = []
-  let dustbin: any = null
   
-  const GenerateAnswer = (obj: any) => {
-    let keys = Object.keys(obj)
-    const answer = (obj[keys[keys.length * Math.random() << 0]])
-    console.log('answer', answer)
+  const GenerateOptions = () => Object.values(PlayersObj).map(player => {
+    boxesArr.push({
+      name: player.fullName,
+      uid: player.uid,
+      profilePicture: player.profilePicture,
+      type: 'any',
+    })
+    return boxesArr.sort(() => 0.5 - Math.random())
+  })
+  
+  const GenerateAnswer = () => {
+    GenerateOptions()
+    let int = Math.ceil((Math.random() * 10) / 2)
+    const answer = boxesArr.slice((int - 1), int)[0]
     return answer
   }
   
   const [dustbins, setDustbins] = useState<DustbinState[]>([
-    { accepts: ['any'], lastDroppedItem: null, profile: GenerateAnswer(PlayersObj) },
+    { 
+      accepts: ['any'], 
+      lastDroppedItem: null, 
+      profile: GenerateAnswer() 
+    },
   ])
 
-  const GenerateOptions = () => Object.values(PlayersObj).map(player => {
-    boxesArr.push({
-      name: formatName(player.fullName),
-      type: 'any'
-    })
-    return boxesArr.sort(() => 0.5 - Math.random())
-  })
-
-  GenerateOptions()
-
-  const [boxes] = useState<BoxState[]>(boxesArr)
-
+  const [boxes] = useState<BoxState[]>(boxesArr.slice(0, 5))
   const [droppedBoxNames, setDroppedBoxNames] = useState<string[]>([])
 
   function isDropped(boxName: string) {
@@ -72,8 +42,7 @@ const GameContainer: React.FC = () => {
   }
 
   const handleDrop = useCallback(
-    (index: number, item: { name: string }) => {
-      console.log('dustbins ', dustbins)
+    (index: number, item: { name: string, uid: any, profilePicture: any }) => {
       const { name } = item
       setDroppedBoxNames(
         update(droppedBoxNames, name ? { $push: [name] } : { $push: [] }),
@@ -94,9 +63,10 @@ const GameContainer: React.FC = () => {
   return (
     <div>
 
-      <Jumbotron>
+      <div className='jumbotron'>
         <h1>GUESS WHO?</h1>
-      </Jumbotron>
+        <p>Get to know your co-workers!</p>
+      </div>
 
       <div className='game-card'>
 
@@ -112,16 +82,19 @@ const GameContainer: React.FC = () => {
             ))}
         </div>
 
-        <div className='playerNames'>
-          {boxes.map(({ name, type }, index) => (
+        <div className='player-names'>
+          {boxes.map(({ name, type, uid, profilePicture }, index) => (
             <Box
               name={name}
               type={type}
+              profilePicture={profilePicture}
+              uid={uid}
               isDropped={isDropped(name)}
               key={index}
             />
           ))}
         </div>
+
       </div>
 
     </div>

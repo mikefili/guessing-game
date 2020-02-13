@@ -1,19 +1,12 @@
 import React from 'react'
 import { useDrop } from 'react-dnd'
 import { images } from '../../assets'
+import styled, { keyframes } from 'styled-components'
+import { fadeIn, headShake } from 'react-animations'
+import FontAwesome from 'react-fontawesome'
 
-const style: React.CSSProperties = {
-  height: '12rem',
-  width: '12rem',
-  marginRight: '1.5rem',
-  marginBottom: '1.5rem',
-  color: 'white',
-  padding: '1rem',
-  textAlign: 'center',
-  fontSize: '1rem',
-  lineHeight: 'normal',
-  float: 'left',
-}
+const FadeIn = styled.div`animation: 0.3s ${keyframes`${fadeIn}`}`
+const HeadShake = styled.div`animation: 1s ${keyframes`${headShake}`}`
 
 export interface DustbinProps {
   accept: string[]
@@ -37,7 +30,6 @@ const Dustbin: React.FC<DustbinProps> = ({
     }),
   })
 
-  const isActive = isOver && canDrop
   let dropState = 'profile-pic'
   if (canDrop) {
     dropState = 'profile-pic can-drop'
@@ -49,13 +41,28 @@ const Dustbin: React.FC<DustbinProps> = ({
   return (
     <>
       <div ref={drop} className='dustbin'>
+        <button 
+          className='btn-refresh'
+          onClick={() => {window.location.reload()}}>
+            <FontAwesome name='refresh' />
+        </button>
         <img 
           className={dropState}
           alt='Drop teammate here!'
           title='Drop teammate here!'
           src={profile ? profile.profilePicture : images.default_avatar} /> 
+          {console.log('last dropped & profile', lastDroppedItem, profile)}
         {lastDroppedItem && (
-          <span className='profile-name'>{lastDroppedItem.name}</span>
+          lastDroppedItem.uid === profile.uid ? ( 
+            <FadeIn>
+              <span className='response'>CORRECT!</span>
+              <p>{profile.name}</p>
+            </FadeIn> ) 
+            : ( 
+            <HeadShake>
+              <span className='response false'>SORRY!</span>
+            </HeadShake>
+          )
         )}
       </div>
     </>

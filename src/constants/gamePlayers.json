@@ -1,27 +1,52 @@
 {
-  "Mike Filicetti": {
+  "Maureen French": {
     "uid": "51A6968C-1D40-4752-A3B2-1D81C0297AEF",
-    "fullName": "Mike Filicetti", 
-    "profilePicture": "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    "fullName": "Maureen French", 
+    "profilePicture": "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
   },
-  "Jennifer Costello": {
+  "Jennifer Castillo": {
     "uid": "DF055826-A114-4FF9-A39F-FAFBEBCB1630",
-    "fullName": "Jennifer Costello", 
+    "fullName": "Jennifer Castillo", 
     "profilePicture": "https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-   },
-   "Kyle Barrose": {
+  },
+  "Kyle Brown": {
     "uid": "C7221006-23E0-45B0-B7F7-E134041505B5",
-    "fullName": "Kyle Barrose", 
+    "fullName": "Kyle Brown", 
     "profilePicture": "https://images.pexels.com/photos/2406949/pexels-photo-2406949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-   },
-   "Andrew Hanson": {
+  },
+  "Tim Le": {
     "uid": "927872D8-A4E8-45BC-8A2E-0B2E2F5C19AA",
-    "fullName": "Andrew Hanson", 
-    "profilePicture": "https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=1&w=500"
-   },
-   "Yasmeen Singh": {
+    "fullName": "Tim Le", 
+    "profilePicture": "https://images.pexels.com/photos/2076596/pexels-photo-2076596.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+  },
+  "Yasmeen Singh": {
     "uid": "543B9B12-9FCB-40B0-823A-82D833C2D212",
     "fullName": "Yasmeen Singh", 
     "profilePicture": "https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg"
+  },
+  "James Baxter": {
+   "uid": "EB6A5493-552B-457F-BE1A-53A4FD7FC4E3",
+   "fullName": "James Baxter", 
+   "profilePicture": "https://images.pexels.com/photos/555790/pexels-photo-555790.png?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  "Meghan Bateman": {
+    "uid": "47A5006F-48D3-4155-98B7-14AAD493B09B",
+    "fullName": "Meghan Bateman", 
+    "profilePicture": "https://images.pexels.com/photos/1674752/pexels-photo-1674752.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+  },
+  "Le Nguyen": {
+    "uid": "24AE064C-DB9A-4860-A120-5A473BAF12D1",
+    "fullName": "Le Nguyen", 
+    "profilePicture": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+  },
+  "Chris Robinson": {
+    "uid": "BB2BDCED-C2E1-46EC-ACF6-9C122645D66D",
+    "fullName": "Chris Robinson", 
+    "profilePicture": "https://images.pexels.com/photos/2033447/pexels-photo-2033447.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+  },
+  "Scott Stevens": {
+    "uid": "75306FF8-6014-427A-AF32-55BFCDCCF1AF",
+    "fullName": "Scott Stevens", 
+    "profilePicture": "https://images.pexels.com/photos/2589653/pexels-photo-2589653.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
   }
 }
