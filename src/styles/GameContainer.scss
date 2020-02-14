@@ -2,6 +2,15 @@
   box-sizing: border-box;
 }
 
+.carousel {
+  width: 22rem;
+  margin: auto;
+
+  .fa {
+    font-size: 3rem;
+  }
+}
+
 .game-card {
   margin: 2rem auto;
   width: 15rem;
