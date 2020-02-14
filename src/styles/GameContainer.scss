@@ -5,7 +5,7 @@
 .game-card {
   margin: 2rem auto;
   width: 15rem;
-  height: 28.5rem;
+  height: 30.125rem;
   border: 1px solid lightgray;
   background-color: whitesmoke;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -118,13 +118,13 @@
   }
 }
 
-.jumbotron {
+.jumbo-tron {
   h1 {
     margin: 2rem 0rem 0rem;
   }
 
   p {
-    margin: 0.5rem 0rem;
+    margin: 0.5rem 0rem 0rem;
   }
 }
 
@@ -133,7 +133,7 @@
     margin-top: 0.5rem;
   }
   
-  .jumbotron {
+  .jumbo-tron {
     h1 {
       margin: 0.5rem 0rem 0rem 0rem;
       font-size: 2.5rem;

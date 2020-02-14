@@ -5,6 +5,8 @@ import { DndProvider } from 'react-dnd'
 import Backend from 'react-dnd-html5-backend'
 import TouchBackend from 'react-dnd-touch-backend'
 import PlayersObj from './constants/gamePlayers.json'
+import { Carousel } from 'react-bootstrap'
+import FontAwesome from 'react-fontawesome'
 
 const isMobile = () => {
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
@@ -22,14 +24,25 @@ const App = () => {
   players()
   return (
     <div className="App">
-      <div className='jumbotron'>
+      <div className='jumbo-tron'>
         <h1>GUESS WHO?</h1>
-        <p>Get to know your co-workers!</p>
+        <p>Get to know your classmates, co-workers, or friends!</p>
       </div>
+
       <DndProvider backend={isMobile() ? TouchBackend : Backend}>
-        {playersArr.map(() => {
-          return <GameCard players={PlayersObj} />
-        })}
+        <Carousel
+          interval={null}
+          indicators={false}
+          nextIcon={<FontAwesome name='chevron-right' />}
+          prevIcon={<FontAwesome name='chevron-left' />}>
+          {playersArr.map(() => {
+            return (
+              <Carousel.Item>
+                <GameCard players={PlayersObj} />
+              </Carousel.Item>
+            )
+          })}
+        </Carousel>
       </DndProvider>
     </div>
   );
