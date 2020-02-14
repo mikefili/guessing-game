@@ -1,3 +1,7 @@
+export interface GameCardState {
+  players: Object
+}
+
 export interface DustbinState {
   accepts: string[]
   lastDroppedItem: any

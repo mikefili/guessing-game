@@ -40,11 +40,6 @@ const Dustbin: React.FC<DustbinProps> = ({
   return (
     <>
       <div ref={drop} className='dustbin'>
-        <button 
-          className='btn-refresh'
-          onClick={() => {window.location.reload()}}>
-            <FontAwesome name='refresh' />
-        </button>
         <img 
           className={dropState}
           alt='Drop teammate here!'
