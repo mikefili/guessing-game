@@ -1,15 +1,14 @@
 import React, { useState, useCallback } from 'react'
-import { DustbinState, BoxState } from './ComponentInterface'
+import { GameCardState, DustbinState, BoxState } from './ComponentInterface'
 import '../../styles/GameContainer.scss'
 import { Dustbin} from '../Dustbin'
 import { Box } from '../Box'
 import update from 'immutability-helper'
-import PlayersObj from '../../constants/gamePlayers.json'
 
-const GameContainer: React.FC = () => {
+const GameCard: React.FC<GameCardState> = ({ players }) => {
   const boxesArr: any[] = []
   
-  const GenerateOptions = () => Object.values(PlayersObj).map(player => {
+  const GenerateOptions = () => Object.values(players).map(player => {
     boxesArr.push({
       name: player.fullName,
       uid: player.uid,
@@ -58,12 +57,7 @@ const GameContainer: React.FC = () => {
 
   return (
     <div>
-
-      <div className='jumbotron'>
-        <h1>GUESS WHO?</h1>
-        <p>Get to know your co-workers!</p>
-      </div>
-
+      
       <div className='game-card'>
 
         <div>
@@ -97,4 +91,4 @@ const GameContainer: React.FC = () => {
   )
 }
 
-export default GameContainer
+export default GameCard
