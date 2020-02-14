@@ -4,7 +4,6 @@ import { useDrop } from 'react-dnd'
 import { images } from '../../assets'
 import styled, { keyframes } from 'styled-components'
 import { fadeIn, headShake, tada } from 'react-animations'
-import FontAwesome from 'react-fontawesome'
 
 const FadeIn = styled.div`animation: 0.3s ${keyframes`${fadeIn}`}`
 const Tada = styled.div`animation: 1s ${keyframes`${tada}`}`
@@ -40,11 +39,6 @@ const Dustbin: React.FC<DustbinProps> = ({
   return (
     <>
       <div ref={drop} className='dustbin'>
-        <button 
-          className='btn-refresh'
-          onClick={() => {window.location.reload()}}>
-            <FontAwesome name='refresh' />
-        </button>
         <img 
           className={dropState}
           alt='Drop teammate here!'
