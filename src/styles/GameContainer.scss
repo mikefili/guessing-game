@@ -11,6 +11,20 @@
   }
 }
 
+@media (max-width: 320px) {
+  .carousel {
+    width: 20rem;
+
+    .fa-chevron-left {
+      margin-right: 0.75rem;
+    }
+
+    .fa-chevron-right {
+      margin-left: 0.75rem;
+    }
+  }
+}
+
 .game-card {
   margin: 2rem auto;
   width: 15rem;
