@@ -146,8 +146,16 @@
     margin: 2rem 0rem 0rem;
   }
 
-  p {
+  .subtitle {
     margin: 0.5rem 0rem 0rem;
+  }
+}
+
+@media (min-width: 321px) and (max-width: 414px) {
+  .jumbo-tron {
+    .subtitle {
+      margin: 0.5rem 1rem 0rem;
+    }
   }
 }
 
@@ -162,7 +170,7 @@
       font-size: 2.5rem;
     }
 
-    p {
+    .subtitle {
       margin: 0rem 0rem 0.5rem 0rem;
     }
   }

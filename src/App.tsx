@@ -26,7 +26,7 @@ const App = () => {
     <div className="App">
       <div className='jumbo-tron'>
         <h1>GUESS WHO?</h1>
-        <p>Get to know your classmates, co-workers, or friends!</p>
+        <p className='subtitle'>Get to know your classmates, co-workers, or friends!</p>
       </div>
 
       <DndProvider backend={isMobile() ? TouchBackend : Backend}>
