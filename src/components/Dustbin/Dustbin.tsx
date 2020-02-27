@@ -5,16 +5,23 @@ import { images } from '../../assets'
 import styled, { keyframes } from 'styled-components'
 import { fadeIn, headShake, tada } from 'react-animations'
 
+// Setup style properties for our styled-component divs
+// using keyframes and our chosed effects from react-animations
 const FadeIn = styled.div`animation: 0.3s ${keyframes`${fadeIn}`}`
 const Tada = styled.div`animation: 1s ${keyframes`${tada}`}`
 const HeadShake = styled.div`animation: 1s ${keyframes`${headShake}`}`
 
+// Dustbin functional component: The Dustbin acts as a designated 
+// dropzone, into which users can drop Boxes
 const Dustbin: React.FC<DustbinProps> = ({
   accept,
   lastDroppedItem,
   profile,
   onDrop,
 }) => {
+  // Setup useDrop hook with a drop callback, allowing users
+  // to monitor whether or not an item (Box) has been dropped
+  // onto the current card's Dustbin 
   const [{ isOver, canDrop }, drop] = useDrop({
     accept,
     drop: onDrop,
@@ -24,7 +31,10 @@ const Dustbin: React.FC<DustbinProps> = ({
     }),
   })
 
+  // Compare the last dropped item's UID to the expected profile's
+  // UID to determine if the correct Box has been dropped & update
   const isCorrect = lastDroppedItem && (lastDroppedItem.uid === profile.uid)
+  // Update styles based on dropState of the current Box dropped
   let dropState = 'profile-pic'
   if (canDrop) {
     dropState = 'profile-pic can-drop'
