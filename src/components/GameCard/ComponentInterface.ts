@@ -1,3 +1,5 @@
+// Setup typing and export interfaces for State on the 
+// GameCard, Dustbin, and Box components
 export interface GameCardState {
   players: Object
 }
