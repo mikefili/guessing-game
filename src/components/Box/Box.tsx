@@ -2,7 +2,17 @@ import React from 'react'
 import { BoxProps } from './ComponentInterface'
 import { useDrag } from 'react-dnd'
 
-const Box: React.FC<BoxProps> = ({ name, type, uid, profilePicture, isDropped }) => {
+// Box functional component: Boxes act as "name cards," which 
+// users can then drop into a dustbin
+const Box: React.FC<BoxProps> = ({ 
+  name, 
+  type, 
+  uid, 
+  profilePicture, 
+  isDropped 
+}) => {
+  // Setup useDrag hook with a drag callback, allowing users
+  // to hand off box data from props as an object called "item"
   const [ , drag] = useDrag({
     item: { name, type, uid, profilePicture }
   })
