@@ -8,12 +8,19 @@ import PlayersObj from './constants/gamePlayers.json'
 import { Carousel } from 'react-bootstrap'
 import FontAwesome from 'react-fontawesome'
 
+// Method used to detect whether the app is being used
+// on mobile or desktop based primarily on whether or not
+// window.orientation exists, since it does not on
+// desktops or laptops 
 const isMobile = () => {
   return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
 }
 
+// Initiate array of players
 const playersArr: any[] = []
 
+// Push player objects from JSON object or API data into
+// our new players array
 const players = () => Object.values(PlayersObj).map(player => {
   return playersArr.push({
     player
